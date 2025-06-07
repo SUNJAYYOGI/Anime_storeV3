@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1 class="h1-heading">Latest frome Anime store</h1>
+
 <div class="story-slider-wrapper">
   <button class="arrow left" onclick="scrollStories(-1)">&#10094;</button>
 
@@ -9,7 +11,7 @@
       <div class="story">
         <a href="{% url 'anime_detail' anime.id %}">
           <img src="{{ anime.thumbnail_url }}" alt="{{ anime.title }}">
-          <span>{{ anime.title|truncatechars:15 }}</span>
+          <span>{{ anime.title }}</span>
         </a>
       </div>
     {% endfor %}
