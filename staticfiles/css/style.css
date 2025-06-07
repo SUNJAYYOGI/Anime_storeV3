@@ -44,7 +44,6 @@ body {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 300px;
-  height: 200px;
   text-align: center;
 }
 
@@ -56,7 +55,7 @@ body {
 /* Thumbnail image */
 .anime-card img {
   width: 100%;
-  height: auto;
+  height: 250px;
   display: block;
   border-bottom: 1px solid #eee;
 }
