@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Anime Store{% endblock %}</title>
+    
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}Watch and explore the best anime collection online. Latest episodes, reviews, and more!{% endblock %}">
+    <meta name="keywords" content="anime, watch anime, anime episodes, anime store, latest anime, action anime, free anime, watch anime online, anime in hindi dubbed">
+    <meta name="author" content="Anime Store ZQQQ">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph (For SEO + Social Sharing) -->
+    <meta property="og:title" content="{% block og_title %}Anime Store{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Watch top Hindi-dubbed anime online - Solo Leveling, Demon Slayer & more!{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anime-store-zqqq.onrender.com/">
+    <meta property="og:image" content="{% block og_image %}{% static 'images/logo.png' %}{% endblock %}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/anime_store_favicon.ico' %}" type="image/x-icon">
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Anime Store",
+      "url": "https://anime-store-zqqq.onrender.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://anime-store-zqqq.onrender.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="top">
+        <h2>Anime Store</h2>
+        
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+            </ul>
+            <form action="{% url 'search' %}" method="get" class="search-form">
+                <input type="text" name="q" placeholder="Search anime...">
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="top">
+        <p>&copy; 2025 Anime Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/* static/css/custom_admin.css */
+.login-logo img {
+    display: block;
+    margin: 0 auto;        /* Center the logo */
+    max-width: 120px;      /* Reduce width */
+    height: auto;          /* Keep aspect ratio */
+    border-radius: 50%;    /* Optional: make it circular like img-circle */
+}

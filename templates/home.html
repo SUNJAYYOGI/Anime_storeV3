@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="story-slider-wrapper">
+  <button class="arrow left" onclick="scrollStories(-1)">&#10094;</button>
+
+  <div class="story-slider" id="storySlider">
+    {% for anime in latest_five %}
+      <div class="story">
+        <a href="{% url 'anime_detail' anime.id %}">
+          <img src="{{ anime.thumbnail_url }}" alt="{{ anime.title }}">
+          <span>{{ anime.title|truncatechars:15 }}</span>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <button class="arrow right" onclick="scrollStories(1)">&#10095;</button>
+</div>
+
+<h1 class="h1-heading">Anime List</h1>
+<div class="card">
+{% for anime in animes %}
+  <div style="margin-bottom: 20px;" class="anime-card">
+    <a href="{% url 'anime_detail' anime.id %}">
+      <img src="{{ anime.thumbnail_url }}" alt="{{ anime.title }}" width="300">
+    </a>
+    <h3 class="h3-heading">{{ anime.title }}</h3>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}
+
+<script>
+function scrollStories(direction) {
+  const slider = document.getElementById('storySlider');
+  const scrollAmount = 100; // you can adjust this
+  slider.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+
+// Optional: Autoplay (every 4s scroll right)
+setInterval(() => {
+  scrollStories(1);
+}, 4000);
+</script>
